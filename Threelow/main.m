@@ -17,18 +17,11 @@ int main(int argc, const char * argv[]) {
     
     @autoreleasepool {
         
-
-        
-        Dice *dice1 = [[Dice alloc]init];
-        Dice *dice2 = [[Dice alloc]init];
-        Dice *dice3 = [[Dice alloc]init];
-        Dice *dice4 = [[Dice alloc]init];
-        Dice *dice5 = [[Dice alloc]init];
-        
+//Also initializes 5 dice for game
         GameController *gameController = [[GameController alloc]init];
         
+        
         NSMutableArray *diceArray = gameController.diceArray;
-        NSMutableArray *heldDice = gameController.heldDice;
         
         
 //        NSMutableArray *diceArray = [@[dice1, dice2, dice3, dice4, dice5] mutableCopy];
@@ -46,22 +39,30 @@ int main(int argc, const char * argv[]) {
         
         if ([parsedInput isEqualToString:@"roll"]) {
             
-            [dice1 randomValue];
-            [dice2 randomValue];
-            [dice3 randomValue];
-            [dice4 randomValue];
-            [dice5 randomValue];
+            for (Dice* dice in gameController.diceArray) {
+                [dice randomValue];
+            }
             
+            [gameController displayDice];
             
         }
+        else if ([parsedInput hasPrefix:@"hold"]) {
+            
+            NSString *hold = @"hold ";
+            NSRange range = NSMakeRange([hold length],([parsedInput length]-[hold length]));
+            NSString *heldStringNumber = [parsedInput substringWithRange:range];
+            NSInteger heldNumber = [heldStringNumber intValue];
+            
+            [gameController holdDie:heldNumber];
         }
 
 
 
     
 //        NSLog(@" ⚀ ⚁ ⚂ ⚃ ⚄ ⚅");
-    
+        
     }
         
     return 0;
+}
 }

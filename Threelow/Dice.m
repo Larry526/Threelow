@@ -10,14 +10,25 @@
 
 @implementation Dice
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _held = NO;
+    }
+    return self;
+}
+
 -(int) randomValue {
     
+    if (self.held == NO){
     self.diceValue = arc4random_uniform(6) + 1;
-    NSLog(@"%d", _diceValue);
-    
+        
+    }
     return self.diceValue;
-    
+
 }
+
 
 
 @end

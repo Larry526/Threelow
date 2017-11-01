@@ -11,8 +11,10 @@
 @interface Dice : NSObject
 
 @property (nonatomic, assign) int diceValue;
+@property (nonatomic, assign) BOOL held;
 
 -(int) randomValue;
+
 
 
 @end
