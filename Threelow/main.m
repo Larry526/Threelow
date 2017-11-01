@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Dice.h"
+#import "GameController.h"
 
 
 
@@ -15,6 +16,7 @@ int main(int argc, const char * argv[]) {
 
     
     @autoreleasepool {
+        
 
         
         Dice *dice1 = [[Dice alloc]init];
@@ -22,7 +24,15 @@ int main(int argc, const char * argv[]) {
         Dice *dice3 = [[Dice alloc]init];
         Dice *dice4 = [[Dice alloc]init];
         Dice *dice5 = [[Dice alloc]init];
-
+        
+        GameController *gameController = [[GameController alloc]init];
+        
+        NSMutableArray *diceArray = gameController.diceArray;
+        NSMutableArray *heldDice = gameController.heldDice;
+        
+        
+//        NSMutableArray *diceArray = [@[dice1, dice2, dice3, dice4, dice5] mutableCopy];
+//        NSMutableArray *heldDice = [[NSMutableArray alloc]init];
         
         while(true) {
 
