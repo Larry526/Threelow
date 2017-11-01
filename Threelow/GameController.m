@@ -26,7 +26,7 @@
 }
 
 -(void) holdDie:(NSInteger)holdDice{
-//    NSLog(@"%ld", holdDice);
+
     Dice * diceHeld = self.diceArray[holdDice-1];
     if(diceHeld.held == NO){
         diceHeld.held = YES;
@@ -42,10 +42,6 @@
 //    NSArray <NSString*> *diceSymbol = @[@"⚀", @"⚁", @"⚂", @"⚃", @"⚄", @"⚅"];
     NSArray <NSString*> *diceSymbol = @[@"1", @"2", @"3", @"4", @"5", @"6"];
 
-//    for (Dice* dice in self.diceArray) {
-//        NSLog(@" %@", diceSymbol[[dice diceValue]-1 ]);
-//    }
-    
     for (Dice * dice in self.diceArray) {
         if(dice.held == YES){
             NSLog(@"[%@]", diceSymbol[[dice diceValue]-1 ]);
@@ -56,5 +52,14 @@
     
 }
     
+}
+
+-(void) resetDice {
+    
+    for (Dice *dice in self.diceArray) {
+        dice.held = NO;
+       
+    }
+     [self displayDice];
 }
 @end

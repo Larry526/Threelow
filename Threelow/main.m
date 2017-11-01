@@ -54,6 +54,8 @@ int main(int argc, const char * argv[]) {
             NSInteger heldNumber = [heldStringNumber intValue];
             
             [gameController holdDie:heldNumber];
+        } else if ([parsedInput hasPrefix:@"reset"]) {
+            [gameController resetDice];
         }
 
 
