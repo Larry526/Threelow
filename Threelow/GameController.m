@@ -39,8 +39,8 @@
 
 -(void) displayDice {
     
-//    NSArray <NSString*> *diceSymbol = @[@"⚀", @"⚁", @"⚂", @"⚃", @"⚄", @"⚅"];
-    NSArray <NSString*> *diceSymbol = @[@"1", @"2", @"3", @"4", @"5", @"6"];
+    NSArray <NSString*> *diceSymbol = @[@"⚀", @"⚁", @"⚂", @"⚃", @"⚄", @"⚅"];
+//    NSArray <NSString*> *diceSymbol = @[@"1", @"2", @"3", @"4", @"5", @"6"];
 
     for (Dice * dice in self.diceArray) {
         if(dice.held == YES){
@@ -49,9 +49,9 @@
         else{
             NSLog(@"%@", diceSymbol[[dice diceValue]-1 ]);
         }
-    
 }
-    
+    [self currentScore];
+    NSLog(@"Your current score is: %ld", self.score);
 }
 
 -(void) resetDice {
@@ -62,4 +62,20 @@
     }
      [self displayDice];
 }
+
+-(void)currentScore {
+    NSInteger score= 0;
+    for (Dice *dice in self.diceArray) {
+        if(dice.held == YES) {
+            if (dice.randomValue == 3) {
+                score += 0;
+            }
+            else{
+            score += dice.randomValue;
+            }
+        }
+    }
+    self.score = score;
+}
+
 @end

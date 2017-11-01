@@ -13,11 +13,14 @@
 
 @property (nonatomic, strong) NSMutableArray *diceArray;
 @property (nonatomic, strong) NSArray *arraySymbol;
+@property (nonatomic, assign) NSInteger score;
 
 -(void) holdDie: (NSInteger) holdDice;
 
 -(void) displayDice;
 
 -(void) resetDice;
+
+-(void) currentScore;
 
 @end
